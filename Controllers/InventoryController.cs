@@ -9,11 +9,16 @@ namespace ShopifyChallengeBackEndApi.Controllers;
 public class InventoryController : ControllerBase
 {
     private readonly InventoryService _inventoryService;
+    private readonly RecycleService _recycleService;
 
-    public InventoryController(InventoryService inventoryService) =>
+    public InventoryController(RecycleService recycleService, InventoryService inventoryService)
+    {
         _inventoryService = inventoryService;
+        _recycleService = recycleService;
+    }
 
-    [HttpGet]
+
+    [HttpGet("all")]
     public async Task<List<Inventory>> Get() =>
         await _inventoryService.GetAsync();
 
@@ -55,18 +60,30 @@ public class InventoryController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{id:length(24)}")]
-    public async Task<IActionResult> Delete(string id)
+    [HttpDelete("delete")]
+    public async Task<IActionResult> Delete([FromQuery] string product_id, [FromQuery] string comment)
     {
-        var inventory = await _inventoryService.GetAsync(id);
-
-        if (inventory is null)
-        {
-            return NotFound();
+        if(comment is null || comment.Equals("")){
+            comment = "*";
         }
+        await _recycleService.CreateAsync(product_id, comment);
+        // var inventory = await _inventoryService.GetAsync(product_id);
 
-        await _inventoryService.RemoveAsync(id);
+        // if (inventory is null)
+        // {
+        //     return NotFound();
+        // }
+
+        // await _inventoryService.RemoveAsync(id);
 
         return NoContent();
+    }
+
+    [HttpPost("recover")]
+    public async Task<List<Inventory>> Recover([FromQuery] string product_id)
+    {
+        await _recycleService.RemoveAsync(product_id);
+        return await _inventoryService.GetAsync();
+
     }
 }

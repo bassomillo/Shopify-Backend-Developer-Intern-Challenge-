@@ -15,4 +15,15 @@ public class Recycle
 
     public string date { get; set; } = null!;
 
+    public string? product_id { get; set; } = null!;
+
+    public string category { get; set; } = null!;
+
+    public string description { get; set; } = null!;
+
+
+    public int? price { get; set; } = null!;
+
+    public int? quantity { get; set; } = null!;
+
 }

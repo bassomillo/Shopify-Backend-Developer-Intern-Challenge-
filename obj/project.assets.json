@@ -821,25 +821,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bassomillo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\cai84263\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\shopify\\ShopifyChallengeAPI\\ShopifyChallenge.csproj",
+      "projectUniqueName": "C:\\Shopify-Backend-Developer-Intern-Challenge-\\ShopifyChallenge.csproj",
       "projectName": "ShopifyChallenge",
-      "projectPath": "D:\\shopify\\ShopifyChallengeAPI\\ShopifyChallenge.csproj",
-      "packagesPath": "C:\\Users\\bassomillo\\.nuget\\packages\\",
-      "outputPath": "D:\\shopify\\ShopifyChallengeAPI\\obj\\",
+      "projectPath": "C:\\Shopify-Backend-Developer-Intern-Challenge-\\ShopifyChallenge.csproj",
+      "packagesPath": "C:\\Users\\cai84263\\.nuget\\packages\\",
+      "outputPath": "C:\\Shopify-Backend-Developer-Intern-Challenge-\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\bassomillo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cai84263\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -891,7 +894,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

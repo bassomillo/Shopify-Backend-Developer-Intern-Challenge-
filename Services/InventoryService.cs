@@ -8,16 +8,16 @@ public class InventoryService
     private readonly IMongoCollection<Inventory> _inventoryCollection;
 
     public InventoryService(
-        IOptions<CSI5112BackendDataBaseSettings> csi5112BackendDataBaseSettings)
+        IOptions<ShopifyChallengeDataBaseSettings> shopifyChallengeDataBaseSettings)
     {
         var mongoClient = new MongoClient(
-            csi5112BackendDataBaseSettings.Value.ConnectionString);
+            shopifyChallengeDataBaseSettings.Value.ConnectionString);
 
         var mongoDatabase = mongoClient.GetDatabase(
-            csi5112BackendDataBaseSettings.Value.DatabaseName);
+            shopifyChallengeDataBaseSettings.Value.DatabaseName);
 
         _inventoryCollection = mongoDatabase.GetCollection<Inventory>(
-            csi5112BackendDataBaseSettings.Value.InventoryCollectionName);
+            shopifyChallengeDataBaseSettings.Value.InventoryCollectionName);
     }
 
     public async Task<List<Inventory>> GetAsync() =>
@@ -26,8 +26,8 @@ public class InventoryService
     public async Task<Inventory?> GetAsync(string id) =>
         await _inventoryCollection.Find(x => x.product_id == id).FirstOrDefaultAsync();
 
-    public async Task CreateAsync(Inventory newBook) =>
-        await _inventoryCollection.InsertOneAsync(newBook);
+    public async Task CreateAsync(Inventory newInventory) =>
+        await _inventoryCollection.InsertOneAsync(newInventory);
 
     public async Task UpdateAsync(string id, Inventory updatedInventory) =>
         await _inventoryCollection.ReplaceOneAsync(x => x.product_id == id, updatedInventory);

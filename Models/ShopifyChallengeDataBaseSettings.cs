@@ -1,6 +1,6 @@
 namespace ShopifyChallengeBackEndApi.Models;
 
-public class CSI5112BackendDataBaseSettings
+public class ShopifyChallengeDataBaseSettings
 {
     public string ConnectionString { get; set; } = null!;
 

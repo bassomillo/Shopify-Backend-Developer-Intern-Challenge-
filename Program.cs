@@ -7,9 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.Configure<CSI5112BackendDataBaseSettings>(
-    builder.Configuration.GetSection("CSI5112BackendDataBase"));
+builder.Services.Configure<ShopifyChallengeDataBaseSettings>(
+    builder.Configuration.GetSection("ShopifyChallengeDataBase"));
 builder.Services.AddSingleton<InventoryService>();
+builder.Services.AddSingleton<RecycleService>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -59,4 +61,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-//ShopifyChallenge
+
+//mongoDB password:  ShopifyChallenge
