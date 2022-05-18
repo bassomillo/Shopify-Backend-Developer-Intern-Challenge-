@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShopifyChallenge</name>
+    </assembly>
+    <members>
+        <member name="M:ShopifyChallengeBackEndApi.Controllers.InventoryController.Get">
+            <summary>
+            View all the inventories
+            </summary>
+        </member>
+        <member name="M:ShopifyChallengeBackEndApi.Controllers.InventoryController.Get(System.String)">
+            <summary>
+            View a specific inventory by ID 
+            </summary>
+        </member>
+        <member name="M:ShopifyChallengeBackEndApi.Controllers.InventoryController.Post(ShopifyChallengeBackEndApi.Models.Inventory)">
+            <summary>
+            Create a new inventory, donot input the product_id value, just delete the first line when you try this API
+            </summary>
+        </member>
+        <member name="M:ShopifyChallengeBackEndApi.Controllers.InventoryController.Update(System.String,ShopifyChallengeBackEndApi.Models.Inventory)">
+            <summary>
+            Update a specific inventory by ID 
+            </summary>
+        </member>
+        <member name="M:ShopifyChallengeBackEndApi.Controllers.InventoryController.Delete(System.String,System.String)">
+            <summary>
+            Deletes a specific inventory with comment and put it into the recycle bin.
+            </summary>
+        </member>
+        <member name="M:ShopifyChallengeBackEndApi.Controllers.InventoryController.Recover(System.String)">
+            <summary>
+            Undeletion of a specific inventory by product id 
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -17,11 +17,16 @@ public class InventoryController : ControllerBase
         _recycleService = recycleService;
     }
 
-
+    /// <summary>
+    /// View all the inventories
+    /// </summary>
     [HttpGet("all")]
     public async Task<List<Inventory>> Get() =>
         await _inventoryService.GetAsync();
 
+    /// <summary>
+    /// View a specific inventory by ID 
+    /// </summary>
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<Inventory>> Get(string id)
     {
@@ -35,6 +40,9 @@ public class InventoryController : ControllerBase
         return inventory;
     }
 
+    /// <summary>
+    /// Create a new inventory, donot input the product_id value, just delete the first line when you try this API
+    /// </summary>
     [HttpPost]
     public async Task<IActionResult> Post(Inventory newInventory)
     {
@@ -43,6 +51,9 @@ public class InventoryController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = newInventory.product_id }, newInventory);
     }
 
+    /// <summary>
+    /// Update a specific inventory by ID 
+    /// </summary>
     [HttpPut("{id:length(24)}")]
     public async Task<IActionResult> Update(string id, Inventory updatedInventory)
     {
@@ -60,6 +71,9 @@ public class InventoryController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Deletes a specific inventory with comment and put it into the recycle bin.
+    /// </summary>
     [HttpDelete("delete")]
     public async Task<IActionResult> Delete([FromQuery] string product_id, [FromQuery] string comment)
     {
@@ -79,6 +93,9 @@ public class InventoryController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Undeletion of a specific inventory by product id 
+    /// </summary>
     [HttpPost("recover")]
     public async Task<List<Inventory>> Recover([FromQuery] string product_id)
     {

@@ -2,7 +2,8 @@
 using Microsoft.OpenApi.Models;
 using ShopifyChallengeBackEndApi.Models;
 using ShopifyChallengeBackEndApi.Services;
-
+using System;
+using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,9 +16,11 @@ builder.Services.AddSingleton<RecycleService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddCors(options => {
+builder.Services.AddCors(options =>
+{
     options.AddPolicy(name: "policy",
-        builder => {
+        builder =>
+        {
             builder.WithOrigins("https://localhost:7284")
                 .AllowAnyOrigin()
                 .AllowAnyHeader()
@@ -25,7 +28,8 @@ builder.Services.AddCors(options => {
         }
     );
 });
-builder.Services.AddSwaggerGen(options => {
+builder.Services.AddSwaggerGen(options =>
+{
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
@@ -43,6 +47,8 @@ builder.Services.AddSwaggerGen(options => {
             Url = new Uri("https://docs.google.com/document/d/1NMq69Xqf4LZchNlQu6PfEojGmDLJqnAPf4AUvYSSdPA/edit")
         }
     });
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 var app = builder.Build();

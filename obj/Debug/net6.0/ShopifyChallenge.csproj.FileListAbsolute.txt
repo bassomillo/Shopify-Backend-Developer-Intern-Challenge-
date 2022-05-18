@@ -84,3 +84,5 @@ C:\Shopify-Backend-Developer-Intern-Challenge-\obj\Debug\net6.0\refint\ShopifyCh
 C:\Shopify-Backend-Developer-Intern-Challenge-\obj\Debug\net6.0\ShopifyChallenge.pdb
 C:\Shopify-Backend-Developer-Intern-Challenge-\obj\Debug\net6.0\ShopifyChallenge.genruntimeconfig.cache
 C:\Shopify-Backend-Developer-Intern-Challenge-\obj\Debug\net6.0\ref\ShopifyChallenge.dll
+C:\Shopify-Backend-Developer-Intern-Challenge-\bin\Debug\net6.0\ShopifyChallenge.xml
+C:\Shopify-Backend-Developer-Intern-Challenge-\obj\Debug\net6.0\ShopifyChallenge.xml
