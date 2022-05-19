@@ -35,18 +35,17 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
         Title = "Shopify Challenge BackEnd API",
         Description = "An ASP.NET Core Web API with MongoDB",
-        TermsOfService = new Uri("https://cloud.mongodb.com/v2/62211b47e91d7e6f2615be09#clusters"),
-        Contact = new OpenApiContact
-        {
-            Name = "Data Structure",
-            Url = new Uri("https://drive.google.com/file/d/19hSHSHkBbbwpSPiB6_9oLpAzXla3YvcQ/view?usp=sharing")
-        },
+        TermsOfService = new Uri("https://cloud.mongodb.com/v2/62847525b133a0137ced123f#clusters"),
+        
         License = new OpenApiLicense
         {
             Name = "Document",
-            Url = new Uri("https://docs.google.com/document/d/1NMq69Xqf4LZchNlQu6PfEojGmDLJqnAPf4AUvYSSdPA/edit")
+            Url = new Uri("https://docs.google.com/document/d/1sFRlpRc_x9s1x9RgBW1YOFIsTJV6en-TekG9I6Ff5fw/edit?usp=sharing")
         }
     });
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+});
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
