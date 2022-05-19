@@ -27,8 +27,8 @@ public class InventoryController : ControllerBase
     /// <summary>
     /// View a specific inventory by ID 
     /// </summary>
-    [HttpGet("{id:length(24)}")]
-    public async Task<ActionResult<Inventory>> Get(string id)
+    [HttpGet("getByID")]
+    public async Task<ActionResult<Inventory>> Get([FromQuery] string id)
     {
         var inventory = await _inventoryService.GetAsync(id);
 
@@ -43,7 +43,7 @@ public class InventoryController : ControllerBase
     /// <summary>
     /// Create a new inventory, donot input the product_id value, just delete the first line when you try this API
     /// </summary>
-    [HttpPost]
+    [HttpPost("create")]
     public async Task<IActionResult> Post(Inventory newInventory)
     {
         await _inventoryService.CreateAsync(newInventory);
@@ -54,8 +54,8 @@ public class InventoryController : ControllerBase
     /// <summary>
     /// Update a specific inventory by ID 
     /// </summary>
-    [HttpPut("{id:length(24)}")]
-    public async Task<IActionResult> Update(string id, Inventory updatedInventory)
+    [HttpPut("update")]
+    public async Task<IActionResult> Update([FromQuery] string id, [FromQuery] Inventory updatedInventory)
     {
         var inventory = await _inventoryService.GetAsync(id);
 
